@@ -196,7 +196,7 @@ public class FrmBajaPortatil extends javax.swing.JDialog {
             numResp = Integer.parseInt(resp);
             if (numResp == 1) {
                 ac.eliminar(celda);
-                JOptionPane.showConfirmDialog(this,
+                JOptionPane.showMessageDialog(this,
                     "La cosola de sobremesa fue eliminada",
                     "Baja exitosa",
                     JOptionPane.INFORMATION_MESSAGE);

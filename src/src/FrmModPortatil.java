@@ -207,7 +207,7 @@ public class FrmModPortatil extends javax.swing.JDialog {
         Consola c = new ConsolaPortatil(Float.parseFloat(txtPantalla.getText()), Integer.parseInt(txtBateria.getText()), clave,
             txtNombre.getText(), Integer.parseInt(txtGeneracion.getText()), Float.parseFloat(txtPrecio.getText()));
         ac.modificar(c, celda);
-        JOptionPane.showConfirmDialog(this,
+        JOptionPane.showMessageDialog(this,
             "La cosola portatil fue modificada",
             "Modificacion exitosa",
             JOptionPane.INFORMATION_MESSAGE);

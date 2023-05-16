@@ -203,7 +203,7 @@ public class FrmAltaPortatil extends javax.swing.JDialog {
         Consola c = new ConsolaPortatil(Float.parseFloat(txtPantalla.getText()), Integer.parseInt(txtBateria.getText()), clave,
                 txtNombre.getText(), generacion, Float.parseFloat(txtPrecio.getText()));
         ac.altas(c);
-        JOptionPane.showConfirmDialog(this,
+        JOptionPane.showMessageDialog(this,
                 "La cosola portatil fue dada de alta",
                 "Alta exitosa",
                 JOptionPane.INFORMATION_MESSAGE);

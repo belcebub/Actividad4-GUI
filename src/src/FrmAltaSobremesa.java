@@ -192,7 +192,7 @@ public class FrmAltaSobremesa extends javax.swing.JDialog {
         Consola c = new ConsolaDeSobremesa(Integer.parseInt(txtDiscoDuro.getText()), txtVideo.getText(), clave,
                 txtNombre.getText(), generacion, Float.parseFloat(txtPrecio.getText()));
         ac.altas(c);
-        JOptionPane.showConfirmDialog(this,
+        JOptionPane.showMessageDialog(this,
                 "La cosola de sobremesa fue dada de alta",
                 "Alta exitosa",
                 JOptionPane.INFORMATION_MESSAGE);

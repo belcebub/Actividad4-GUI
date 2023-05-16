@@ -136,13 +136,13 @@ public class PruebaAdmonConsolas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void opcAcercaDeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcAcercaDeActionPerformed
-        JOptionPane.showConfirmDialog(this,
+        JOptionPane.showMessageDialog(this,
                 "Sistema: LE CONSOLE DE LEGUINE - CONTROL DE CONSOLAS\n" + 
                         "version 1.0\n" +
                         "Programadores:\n"+ 
-                        "Joseph Abraham Duran Vargas\n" +
-                        "Luis Gerardo Esteban Flores\n" +
-                        "Alejandro Jesus Damian Rodriguez\n" +
+                        " -Joseph Abraham Duran Vargas\n" +
+                        " -Luis Gerardo Esteban Flores\n" +
+                        " -Alejandro Jesus Damian Rodriguez\n" +
                         "Fecha: 15 de Mayo del 2023", 
                 "Acerca de...", 
                 JOptionPane.INFORMATION_MESSAGE);
@@ -156,7 +156,7 @@ public class PruebaAdmonConsolas extends javax.swing.JFrame {
         if (ac.getCont() < 50) {
             new FrmAltas(this, true).setVisible(true);
         } else {
-            JOptionPane.showConfirmDialog(this,
+            JOptionPane.showMessageDialog(this,
                     "La base de datos esta llena",
                     "Error",
                     JOptionPane.ERROR_MESSAGE);
@@ -196,6 +196,11 @@ public class PruebaAdmonConsolas extends javax.swing.JFrame {
             opcConsGral.setEnabled(true);
             opcModificaciones.setEnabled(true);
             opcBajas.setEnabled(true);
+        } else {
+            opcConsInd.setEnabled(false);
+            opcConsGral.setEnabled(false);
+            opcModificaciones.setEnabled(false);
+            opcBajas.setEnabled(false);
         }
     }//GEN-LAST:event_formWindowActivated
 
@@ -214,10 +219,18 @@ public class PruebaAdmonConsolas extends javax.swing.JFrame {
         if (claveTexto != null) {
             clave = Integer.parseInt(claveTexto);
             int celda = ac.busqueda(clave);
-            if (ac.getConsola(celda) instanceof ConsolaDeSobremesa) {
-                new FrmModSobremesa(this, true, clave, celda).setVisible(true);
+            if (celda != -1) {
+                if (ac.getConsola(celda) instanceof ConsolaDeSobremesa) {
+                    new FrmModSobremesa(this, true, clave, celda).setVisible(true);
+                } else {
+                    new FrmModPortatil(this, true, clave, celda).setVisible(true);
+                }
             } else {
-                new FrmModPortatil(this, true, clave, celda).setVisible(true);
+                JOptionPane.showMessageDialog(
+                this, 
+                "No existe ninguna consola con esa clave",
+                "Error", 
+                JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_opcModificacionesActionPerformed
@@ -233,12 +246,20 @@ public class PruebaAdmonConsolas extends javax.swing.JFrame {
         if (claveTexto != null) {
             clave = Integer.parseInt(claveTexto);
             int celda = ac.busqueda(clave);
-            if (ac.getConsola(celda) instanceof ConsolaDeSobremesa) {
-                new FrmBajaSobremesa(this,true,celda).setVisible(true);
+            if (celda != -1) {
+                if (ac.getConsola(celda) instanceof ConsolaDeSobremesa) {
+                    new FrmBajaSobremesa(this,true,celda).setVisible(true);
+                } else {
+                    new FrmBajaPortatil(this, true, celda).setVisible(true);
+                }
             } else {
-                new FrmBajaPortatil(this, true, celda).setVisible(true);
+                JOptionPane.showMessageDialog(
+                this, 
+                "No existe ninguna consola con esa clave",
+                "Error", 
+                JOptionPane.ERROR_MESSAGE);
             }
-        }
+         }
     }//GEN-LAST:event_opcBajasActionPerformed
 
     /**

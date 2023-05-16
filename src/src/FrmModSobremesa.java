@@ -214,7 +214,7 @@ public class FrmModSobremesa extends javax.swing.JDialog {
         Consola c = new ConsolaDeSobremesa(Integer.parseInt(txtDiscoDuro.getText()), txtVideo.getText(), clave,
                 txtNombre.getText(), Integer.parseInt(txtGeneracion.getText()), Float.parseFloat(txtPrecio.getText()));
         ac.modificar(c, celda);
-        JOptionPane.showConfirmDialog(this,
+        JOptionPane.showMessageDialog(this,
                 "La cosola de sobremesa fue modificada",
                 "Modificacion exitosa",
                 JOptionPane.INFORMATION_MESSAGE);
